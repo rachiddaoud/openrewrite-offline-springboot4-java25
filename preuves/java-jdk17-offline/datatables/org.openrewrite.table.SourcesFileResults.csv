@@ -1,0 +1,16 @@
+# @name org.openrewrite.table.SourcesFileResults
+# @instanceName Source files that had results
+# @group 
+sourcePath,afterSourcePath,parentRecipe,recipe,estimatedTimeSaving,cycle
+pom.xml,pom.xml,org.openrewrite.java.migrate.UpgradeJavaVersion,org.openrewrite.maven.UpdateMavenProjectPropertyJavaVersion,300,1
+pom.xml,pom.xml,org.openrewrite.java.migrate.UpgradeBuildToJava21,org.openrewrite.java.migrate.UpgradeJavaVersion,0,1
+pom.xml,pom.xml,org.openrewrite.java.migrate.UpgradeToJava21,org.openrewrite.java.migrate.UpgradeBuildToJava21,0,1
+pom.xml,pom.xml,,org.openrewrite.java.migrate.UpgradeToJava21,0,1
+pom.xml,pom.xml,org.openrewrite.java.migrate.UpgradeJavaVersion,org.openrewrite.maven.UpdateMavenProjectPropertyJavaVersion,300,1
+pom.xml,pom.xml,org.openrewrite.java.migrate.UpgradeBuildToJava25,org.openrewrite.java.migrate.UpgradeJavaVersion,0,1
+pom.xml,pom.xml,,org.openrewrite.java.migrate.UpgradeBuildToJava25,0,1
+src/main/java/example/Application.java,src/main/java/example/Application.java,org.openrewrite.java.migrate.UpgradeBuildToJava21,org.openrewrite.java.migrate.UpgradeJavaVersion,0,1
+src/main/java/example/Application.java,src/main/java/example/Application.java,org.openrewrite.java.migrate.UpgradeToJava21,org.openrewrite.java.migrate.UpgradeBuildToJava21,0,1
+src/main/java/example/Application.java,src/main/java/example/Application.java,,org.openrewrite.java.migrate.UpgradeToJava21,0,1
+src/main/java/example/Application.java,src/main/java/example/Application.java,org.openrewrite.java.migrate.UpgradeBuildToJava25,org.openrewrite.java.migrate.UpgradeJavaVersion,0,1
+src/main/java/example/Application.java,src/main/java/example/Application.java,,org.openrewrite.java.migrate.UpgradeBuildToJava25,0,1

@@ -1,0 +1,14 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< org.apache.maven:standalone-pom >-------------------
+[INFO] Building Maven Stub Project (No POM) 1
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- dependency:3.11.0:get (default-cli) @ standalone-pom ---
+[INFO] Resolving tools.jackson.core:jackson-databind:jar:3.1.7 with transitive dependencies
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.855 s
+[INFO] Finished at: 2026-09-24T09:23:21+02:00
+[INFO] ------------------------------------------------------------------------

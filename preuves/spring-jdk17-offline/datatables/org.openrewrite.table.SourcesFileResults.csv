@@ -1,0 +1,25 @@
+# @name org.openrewrite.table.SourcesFileResults
+# @instanceName Source files that had results
+# @group 
+sourcePath,afterSourcePath,parentRecipe,recipe,estimatedTimeSaving,cycle
+pom.xml,pom.xml,org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_5,org.openrewrite.maven.UpgradeParentVersion,300,1
+pom.xml,pom.xml,,org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_5,0,1
+pom.xml,pom.xml,org.openrewrite.java.jackson.UpgradeJackson_2_3_Dependencies,org.openrewrite.java.dependencies.ChangeDependency,300,1
+pom.xml,pom.xml,org.openrewrite.java.jackson.UpgradeJackson_2_3,org.openrewrite.java.jackson.UpgradeJackson_2_3_Dependencies,0,1
+pom.xml,pom.xml,org.openrewrite.java.spring.framework.UpgradeSpringFramework_7_0,org.openrewrite.java.jackson.UpgradeJackson_2_3,0,1
+pom.xml,pom.xml,,org.openrewrite.java.spring.framework.UpgradeSpringFramework_7_0,0,1
+pom.xml,pom.xml,org.openrewrite.java.spring.boot4.UpgradeSpringBoot_4_0,org.openrewrite.maven.UpgradeParentVersion,300,1
+pom.xml,pom.xml,org.openrewrite.java.spring.boot4.UpgradeSpringBoot_4_0,org.openrewrite.maven.RemoveRedundantDependencyVersions,300,1
+pom.xml,pom.xml,org.openrewrite.java.spring.boot4.UpgradeSpringBoot_4_0,org.openrewrite.java.dependencies.ChangeDependency,300,1
+src/main/java/example/Application.java,src/main/java/example/Application.java,org.openrewrite.java.jackson.UpgradeJackson_2_3_TypeChanges,org.openrewrite.java.ChangeType,300,1
+src/main/java/example/Application.java,src/main/java/example/Application.java,org.openrewrite.java.jackson.UpgradeJackson_2_3,org.openrewrite.java.jackson.UpgradeJackson_2_3_TypeChanges,0,1
+src/main/java/example/Application.java,src/main/java/example/Application.java,org.openrewrite.java.spring.framework.UpgradeSpringFramework_7_0,org.openrewrite.java.jackson.UpgradeJackson_2_3,0,1
+src/main/java/example/Application.java,src/main/java/example/Application.java,,org.openrewrite.java.spring.framework.UpgradeSpringFramework_7_0,0,1
+src/main/java/example/Application.java,src/main/java/example/Application.java,org.openrewrite.java.jackson.UpgradeJackson_2_3_PackageChanges,org.openrewrite.java.ChangePackage,300,1
+src/main/java/example/Application.java,src/main/java/example/Application.java,org.openrewrite.java.jackson.UpgradeJackson_2_3,org.openrewrite.java.jackson.UpgradeJackson_2_3_PackageChanges,0,1
+src/main/java/example/Application.java,src/main/java/example/Application.java,org.openrewrite.java.spring.framework.UpgradeSpringFramework_7_0,org.openrewrite.java.jackson.UpgradeJackson_2_3,0,1
+src/main/java/example/Application.java,src/main/java/example/Application.java,,org.openrewrite.java.spring.framework.UpgradeSpringFramework_7_0,0,1
+src/main/java/example/Application.java,src/main/java/example/Application.java,org.openrewrite.java.jackson.RemoveDeadJacksonThrows,org.openrewrite.java.RemoveMethodThrows,300,1
+src/main/java/example/Application.java,src/main/java/example/Application.java,org.openrewrite.java.jackson.UpgradeJackson_2_3,org.openrewrite.java.jackson.RemoveDeadJacksonThrows,0,1
+src/main/java/example/Application.java,src/main/java/example/Application.java,org.openrewrite.java.spring.framework.UpgradeSpringFramework_7_0,org.openrewrite.java.jackson.UpgradeJackson_2_3,0,1
+src/main/java/example/Application.java,src/main/java/example/Application.java,,org.openrewrite.java.spring.framework.UpgradeSpringFramework_7_0,0,1

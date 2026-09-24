@@ -1,0 +1,78 @@
+Classfile /Users/daoud/Documents/Codex/2026-09-24-contexte-je-migre-un-projet-de/validation-project/target/classes/example/Application.class
+  Last modified 24 sept. 2026; size 699 bytes
+  SHA-256 checksum 3e5b8ceb50fa7bbdb7fec398e09caceaa144832d1849ba9365b40293f3f32860
+  Compiled from "Application.java"
+public class example.Application
+  minor version: 0
+  major version: 69
+  flags: (0x0021) ACC_PUBLIC, ACC_SUPER
+  this_class: #7                          // example/Application
+  super_class: #2                         // java/lang/Object
+  interfaces: 0, fields: 0, methods: 2, attributes: 2
+Constant pool:
+   #1 = Methodref          #2.#3          // java/lang/Object."<init>":()V
+   #2 = Class              #4             // java/lang/Object
+   #3 = NameAndType        #5:#6          // "<init>":()V
+   #4 = Utf8               java/lang/Object
+   #5 = Utf8               <init>
+   #6 = Utf8               ()V
+   #7 = Class              #8             // example/Application
+   #8 = Utf8               example/Application
+   #9 = Methodref          #10.#11        // org/springframework/boot/SpringApplication.run:(Ljava/lang/Class;[Ljava/lang/String;)Lorg/springframework/context/ConfigurableApplicationContext;
+  #10 = Class              #12            // org/springframework/boot/SpringApplication
+  #11 = NameAndType        #13:#14        // run:(Ljava/lang/Class;[Ljava/lang/String;)Lorg/springframework/context/ConfigurableApplicationContext;
+  #12 = Utf8               org/springframework/boot/SpringApplication
+  #13 = Utf8               run
+  #14 = Utf8               (Ljava/lang/Class;[Ljava/lang/String;)Lorg/springframework/context/ConfigurableApplicationContext;
+  #15 = Utf8               Code
+  #16 = Utf8               LineNumberTable
+  #17 = Utf8               LocalVariableTable
+  #18 = Utf8               this
+  #19 = Utf8               Lexample/Application;
+  #20 = Utf8               main
+  #21 = Utf8               ([Ljava/lang/String;)V
+  #22 = Utf8               args
+  #23 = Utf8               [Ljava/lang/String;
+  #24 = Utf8               MethodParameters
+  #25 = Utf8               SourceFile
+  #26 = Utf8               Application.java
+  #27 = Utf8               RuntimeVisibleAnnotations
+  #28 = Utf8               Lorg/springframework/boot/autoconfigure/SpringBootApplication;
+{
+  public example.Application();
+    descriptor: ()V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: return
+      LineNumberTable:
+        line 13: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lexample/Application;
+
+  public static void main(java.lang.String[]);
+    descriptor: ([Ljava/lang/String;)V
+    flags: (0x0009) ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=2, locals=1, args_size=1
+         0: ldc           #7                  // class example/Application
+         2: aload_0
+         3: invokestatic  #9                  // Method org/springframework/boot/SpringApplication.run:(Ljava/lang/Class;[Ljava/lang/String;)Lorg/springframework/context/ConfigurableApplicationContext;
+         6: pop
+         7: return
+      LineNumberTable:
+        line 14: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       8     0  args   [Ljava/lang/String;
+    MethodParameters:
+      Name                           Flags
+      args
+}
+SourceFile: "Application.java"
+RuntimeVisibleAnnotations:
+  0: #28()
+    org.springframework.boot.autoconfigure.SpringBootApplication

@@ -1,0 +1,14 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< org.apache.maven:standalone-pom >-------------------
+[INFO] Building Maven Stub Project (No POM) 1
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- dependency:3.11.0:get (default-cli) @ standalone-pom ---
+[INFO] Resolving org.openrewrite.recipe:rewrite-migrate-java:jar:3.42.1 with transitive dependencies
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.781 s
+[INFO] Finished at: 2026-09-24T09:05:12+02:00
+[INFO] ------------------------------------------------------------------------
