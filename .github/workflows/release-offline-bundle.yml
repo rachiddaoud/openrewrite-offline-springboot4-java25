@@ -1,0 +1,60 @@
+name: Release offline bundle
+
+# Réassemble rewrite-offline/dist/*.part-* en une seule archive, vérifie le SHA-256
+# et la publie comme asset d'une Release GitHub.
+on:
+  push:
+    tags:
+      - 'offline-*'
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag de la Release (créé s''il n''existe pas)'
+        required: true
+        default: 'offline-boot4-rewrite-spring-6.37.0'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    env:
+      ARCHIVE: m2repo-rewrite-spring-6.37.0.tar.gz
+      TAG: ${{ github.event.inputs.tag || github.ref_name }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Réassembler et vérifier l'archive
+        working-directory: rewrite-offline/dist
+        run: |
+          cat "$ARCHIVE".part-* > "$ARCHIVE"
+          sha256sum -c "$ARCHIVE.sha256"
+          tar -tzf "$ARCHIVE" > /dev/null
+          ls -l "$ARCHIVE"
+
+      - name: Publier la Release
+        working-directory: rewrite-offline/dist
+        run: |
+          {
+            echo "Dépôt Maven hors ligne pour \`org.openrewrite.java.spring.boot4.UpgradeSpringBoot_4_0\`."
+            echo
+            echo "- rewrite-maven-plugin **6.46.1**, rewrite-spring **6.37.0** (BOM 3.37.0)"
+            echo "- SHA-256 : \`$(cut -d' ' -f1 "$ARCHIVE.sha256")\`"
+            echo
+            echo '```sh'
+            echo "tar -xzf $ARCHIVE -C ~/.m2/repository --skip-old-files"
+            echo 'mvn -o generate-sources rewrite:runNoFork -Drewrite.activeRecipes=org.openrewrite.java.spring.boot4.UpgradeSpringBoot_4_0'
+            echo '```'
+            echo
+            echo "Instructions complètes : [rewrite-offline/README.md](https://github.com/${GITHUB_REPOSITORY}/blob/${TAG}/rewrite-offline/README.md)"
+          } > notes.md
+          if gh release view "$TAG" > /dev/null 2>&1; then
+            gh release upload "$TAG" "$ARCHIVE" "$ARCHIVE.sha256" --clobber
+          else
+            gh release create "$TAG" "$ARCHIVE" "$ARCHIVE.sha256" \
+              --target "$GITHUB_SHA" \
+              --title "OpenRewrite offline — Spring Boot 4 (rewrite-spring 6.37.0)" \
+              --notes-file notes.md
+          fi

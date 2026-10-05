@@ -33,20 +33,35 @@ n'associe donc pas les artefacts au dépôt `central` et les accepte derrière u
 
 ## Installation
 
+**Méthode recommandée** : télécharger l'archive unique depuis la Release
+[`offline-boot4-rewrite-spring-6.37.0`](https://github.com/rachiddaoud/openrewrite-offline-springboot4-java25/releases/tag/offline-boot4-rewrite-spring-6.37.0)
+(`m2repo-rewrite-spring-6.37.0.tar.gz` + `.sha256`), puis :
+
 ```sh
-# 1. Réassembler et contrôler
-cd dist
-cat m2repo-rewrite-spring-6.37.0.tar.gz.part-* > m2repo-rewrite-spring-6.37.0.tar.gz
 sha256sum -c m2repo-rewrite-spring-6.37.0.tar.gz.sha256
 # attendu : f58c5d2199e307b3959abb431d69fcb2bfcec13490717b83fbababdfa11a9ad2
-
-# 2. Fusionner dans le dépôt local (sans écraser l'existant)
 mkdir -p ~/.m2/repository
 tar -xzf m2repo-rewrite-spring-6.37.0.tar.gz -C ~/.m2/repository --skip-old-files
 ```
 
-Windows PowerShell : `cmd /c copy /b m2repo-rewrite-spring-6.37.0.tar.gz.part-00+m2repo-rewrite-spring-6.37.0.tar.gz.part-01+m2repo-rewrite-spring-6.37.0.tar.gz.part-02+m2repo-rewrite-spring-6.37.0.tar.gz.part-03 m2repo-rewrite-spring-6.37.0.tar.gz`,
-`Get-FileHash` pour le contrôle, puis `tar -xzf m2repo-rewrite-spring-6.37.0.tar.gz -C $HOME\.m2\repository --skip-old-files` (bsdtar intégré à Windows 10+ ; `-k` si `--skip-old-files` n'est pas reconnu).
+Windows PowerShell : `Get-FileHash m2repo-rewrite-spring-6.37.0.tar.gz` pour le contrôle, puis
+`tar -xzf m2repo-rewrite-spring-6.37.0.tar.gz -C $HOME\.m2\repository --skip-old-files`
+(bsdtar intégré à Windows 10+ ; `-k` si `--skip-old-files` n'est pas reconnu).
+
+La Release est produite par le workflow `.github/workflows/release-offline-bundle.yml`, qui réassemble
+les parties de `dist/` et vérifie le SHA-256. Pour une nouvelle version : remplacer les parties, puis
+pousser un tag `offline-*` (ou lancer le workflow manuellement).
+
+**Sans accès aux Releases** (clone du dépôt uniquement) : réassembler les parties de `dist/` :
+
+```sh
+cd dist
+cat m2repo-rewrite-spring-6.37.0.tar.gz.part-* > m2repo-rewrite-spring-6.37.0.tar.gz
+sha256sum -c m2repo-rewrite-spring-6.37.0.tar.gz.sha256
+tar -xzf m2repo-rewrite-spring-6.37.0.tar.gz -C ~/.m2/repository --skip-old-files
+```
+
+Windows PowerShell, réassemblage : `cmd /c copy /b m2repo-rewrite-spring-6.37.0.tar.gz.part-00+m2repo-rewrite-spring-6.37.0.tar.gz.part-01+m2repo-rewrite-spring-6.37.0.tar.gz.part-02+m2repo-rewrite-spring-6.37.0.tar.gz.part-03 m2repo-rewrite-spring-6.37.0.tar.gz`.
 
 Pour une reproduction stricte (aucune interférence avec un dépôt existant), extraire dans un dossier
 vide et ajouter `-Dmaven.repo.local=/chemin/vers/ce/dossier` aux commandes ci-dessous.
