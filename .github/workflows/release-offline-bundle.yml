@@ -6,10 +6,6 @@ on:
   push:
     tags:
       - 'offline-*'
-    # Toute modification du bundle (sur n'importe quelle branche) republie la Release.
-    paths:
-      - 'rewrite-offline/dist/**'
-      - '.github/workflows/release-offline-bundle.yml'
   workflow_dispatch:
     inputs:
       tag:
