@@ -1,0 +1,45 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------------------------< com.example:demo >--------------------------
+[INFO] Building demo 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- rewrite:6.46.1:runNoFork (default-cli) @ demo ---
+[INFO] Using active recipe(s) [org.openrewrite.java.spring.boot4.UpgradeSpringBoot_4_0]
+[INFO] Using active styles(s) []
+[INFO] Validating active recipes...
+[INFO] Project [demo] Resolving Poms...
+[INFO] Project [demo] Parsing source files
+[INFO] Running recipe(s)...
+[INFO] Printing available datatables to: target/rewrite/datatables/2026-10-05_09-48-51-272
+[WARNING] Failed to access maven repository https://central.sonatype.com/repository/maven-snapshots due to: Unable to tunnel through proxy. Proxy returns "HTTP/1.1 403 Forbidden"
+[WARNING] Changes have been made to rewrite-offline/sample/pom.xml by:
+[WARNING]     org.openrewrite.maven.UpgradeParentVersion: {groupId=org.springframework.boot, artifactId=spring-boot-starter-parent, newVersion=4.0.x}
+[WARNING]         org.openrewrite.java.spring.boot4.MigrateToModularStarters
+[WARNING]             org.openrewrite.java.dependencies.AddDependency
+[WARNING]             org.openrewrite.java.dependencies.ChangeDependency: {oldGroupId=org.springframework.boot, oldArtifactId=spring-boot-starter-web, newArtifactId=spring-boot-starter-webmvc, newVersion=4.0.x}
+[WARNING] Changes have been made to rewrite-offline/sample/src/main/java/com/example/demo/web/CustomerController.java by:
+[WARNING]     org.openrewrite.java.spring.framework.UpgradeSpringFramework_7_0
+[WARNING]         org.openrewrite.java.jackson.UpgradeJackson_2_3
+[WARNING]             org.openrewrite.java.jackson.UpgradeJackson_2_3_PackageChanges
+[WARNING]                 org.openrewrite.java.ChangePackage
+[WARNING] Changes have been made to rewrite-offline/sample/src/test/java/com/example/demo/DemoApplicationTests.java by:
+[WARNING]     org.openrewrite.java.spring.boot4.MigrateToModularStarters
+[WARNING]         org.openrewrite.java.spring.boot4.MigrateAutoconfigurePackages
+[WARNING]             org.openrewrite.java.ChangePackage
+[WARNING]         org.openrewrite.java.spring.boot4.AddAutoConfigureTestRestTemplate
+[WARNING] Changes have been made to rewrite-offline/sample/src/test/java/com/example/demo/web/CustomerControllerTest.java by:
+[WARNING]     org.openrewrite.java.spring.boot4.ReplaceMockBeanAndSpyBean
+[WARNING]         org.openrewrite.java.ChangeType
+[WARNING]         org.openrewrite.java.spring.boot4.MigrateToModularStarters
+[WARNING]             org.openrewrite.java.spring.boot4.MigrateAutoconfigurePackages
+[WARNING]                 org.openrewrite.java.ChangePackage
+[WARNING] Please review and commit the results.
+[WARNING] Estimate time saved: 40m
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  33.947 s
+[INFO] Finished at: 2026-10-05T09:49:08Z
+[INFO] ------------------------------------------------------------------------

@@ -1,0 +1,67 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------------------------< com.example:demo >--------------------------
+[INFO] Building demo 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> rewrite:6.46.1:dryRun (default-cli) > process-test-classes @ demo >>>
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ demo ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] Copying 0 resource from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (default-compile) @ demo ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 4 source files with javac [debug parameters release 21] to target/classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ demo ---
+[INFO] skip non existing resourceDirectory <repo>/rewrite-offline/offline-test/sample/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ demo ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 2 source files with javac [debug parameters release 21] to target/test-classes
+[WARNING] <repo>/rewrite-offline/offline-test/sample/src/test/java/com/example/demo/web/CustomerControllerTest.java:[27,6] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[INFO] 
+[INFO] <<< rewrite:6.46.1:dryRun (default-cli) < process-test-classes @ demo <<<
+[INFO] 
+[INFO] 
+[INFO] --- rewrite:6.46.1:dryRun (default-cli) @ demo ---
+[INFO] Using active recipe(s) [org.openrewrite.java.spring.boot4.UpgradeSpringBoot_4_0]
+[INFO] Using active styles(s) []
+[INFO] Validating active recipes...
+[INFO] Project [demo] Resolving Poms...
+[INFO] Project [demo] Parsing source files
+[INFO] Running recipe(s)...
+[INFO] Printing available datatables to: target/rewrite/datatables/2026-10-05_09-52-29-799
+[WARNING] These recipes would make changes to rewrite-offline/offline-test/sample/pom.xml:
+[WARNING]     org.openrewrite.maven.UpgradeParentVersion: {groupId=org.springframework.boot, artifactId=spring-boot-starter-parent, newVersion=4.0.x}
+[WARNING]         org.openrewrite.java.spring.boot4.MigrateToModularStarters
+[WARNING]             org.openrewrite.java.dependencies.AddDependency
+[WARNING]             org.openrewrite.java.dependencies.ChangeDependency: {oldGroupId=org.springframework.boot, oldArtifactId=spring-boot-starter-web, newArtifactId=spring-boot-starter-webmvc, newVersion=4.0.x}
+[WARNING] These recipes would make changes to rewrite-offline/offline-test/sample/src/main/java/com/example/demo/web/CustomerController.java:
+[WARNING]     org.openrewrite.java.spring.framework.UpgradeSpringFramework_7_0
+[WARNING]         org.openrewrite.java.jackson.UpgradeJackson_2_3
+[WARNING]             org.openrewrite.java.jackson.UpgradeJackson_2_3_PackageChanges
+[WARNING]                 org.openrewrite.java.ChangePackage
+[WARNING] These recipes would make changes to rewrite-offline/offline-test/sample/src/test/java/com/example/demo/DemoApplicationTests.java:
+[WARNING]     org.openrewrite.java.spring.boot4.MigrateToModularStarters
+[WARNING]         org.openrewrite.java.spring.boot4.MigrateAutoconfigurePackages
+[WARNING]             org.openrewrite.java.ChangePackage
+[WARNING]         org.openrewrite.java.spring.boot4.AddAutoConfigureTestRestTemplate
+[WARNING] These recipes would make changes to rewrite-offline/offline-test/sample/src/test/java/com/example/demo/web/CustomerControllerTest.java:
+[WARNING]     org.openrewrite.java.spring.boot4.ReplaceMockBeanAndSpyBean
+[WARNING]         org.openrewrite.java.ChangeType
+[WARNING]         org.openrewrite.java.spring.boot4.MigrateToModularStarters
+[WARNING]             org.openrewrite.java.spring.boot4.MigrateAutoconfigurePackages
+[WARNING]                 org.openrewrite.java.ChangePackage
+[WARNING] Patch file available:
+[WARNING]     <repo>/rewrite-offline/offline-test/sample/target/rewrite/rewrite.patch
+[WARNING] Estimate time saved: 40m
+[WARNING] Run 'mvn rewrite:run' to apply the recipes.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  19.237 s
+[INFO] Finished at: 2026-10-05T09:52:33Z
+[INFO] ------------------------------------------------------------------------

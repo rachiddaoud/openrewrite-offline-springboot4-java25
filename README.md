@@ -1,5 +1,7 @@
 # OpenRewrite hors ligne — 24 septembre 2026
 
+> **Nouveau (5 octobre 2026)** : bundle hors ligne `rewrite-maven-plugin 6.46.1` + `rewrite-spring 6.37.0` (Boot 3.5 → 4.0) dans [`rewrite-offline/`](rewrite-offline/README.md).
+
 ## Versions et validation
 
 | Artefact | Version stable vérifiée sur Maven Central | Licence déclarée |
