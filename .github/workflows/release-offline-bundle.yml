@@ -6,6 +6,10 @@ on:
   push:
     tags:
       - 'offline-*'
+    # Toute modification du bundle (sur n'importe quelle branche) republie la Release.
+    paths:
+      - 'rewrite-offline/dist/**'
+      - '.github/workflows/release-offline-bundle.yml'
   workflow_dispatch:
     inputs:
       tag:
@@ -21,7 +25,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       ARCHIVE: m2repo-rewrite-spring-6.37.0.tar.gz
-      TAG: ${{ github.event.inputs.tag || github.ref_name }}
+      TAG: ${{ github.event.inputs.tag || (startsWith(github.ref, 'refs/tags/') && github.ref_name) || 'offline-boot4-rewrite-spring-6.37.0' }}
       GH_TOKEN: ${{ github.token }}
     steps:
       - uses: actions/checkout@v4
